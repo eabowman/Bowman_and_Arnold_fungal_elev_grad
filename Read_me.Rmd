@@ -1,0 +1,115 @@
+---
+title: "Read me"
+author: "Liz Bowman"
+date: "10/26/2016"
+output: html_document
+---
+
+The folders here contain R scripts and data files for the article "Ectomycorrhizal and
+foliar endophytic fungal communities differ in sensitivity to climate-related factors
+along a spatially constrained elevation gradient" written by Elizabeth A. Bowman and A.
+Elizabeth Arnold.
+
+A. Elizabeth Arnold is the author for correspondence on this article. 
+Address: 1140 E. South Campus Drive
+Forbes 303
+School of Plant Sciences
+The University of Arizona
+Tucson, AZ 85721 USA. 
+Email: arnold@ag.arizona.edu
+
+Elizabeth A. Bowman wrote all scripts for data analysis.
+Email: eabowman@email.arizona.edu
+
+------------------------------------------------------------------------------------------
+
+Explanation of folders:
+1. The data folder contains all data files used in the R script for analyses with
+explanations of columns.
+2. The figure folder is an output folder where figures generated in the R script will be
+output.
+3. The results folder is an output folder for results tables generated in the R script.
+4. The script folder contains all scripts organized by type of analysis.
+
+Each of these folders contains a 'Read me' file with further explanations.
+
+------------------------------------------------------------------------------------------
+
+The following code will run each analysis and output figures and result tables to their
+appropriate folders. 
+
+### Load file paths
+
+```{r file paths}
+#--file path to data directory
+dat.dir <- 'data/'
+fig.dir <- 'figures/'
+res.dir <- 'results/'
+script.dir <- 'script/'
+```
+
+### Load packages  
+
+If you need to install packages, open 'Load_packages.R' and uncomment 'install.packages'
+before running. 
+
+```{r libraries}
+source(paste0(script.dir, "Load_packages.R"))
+```
+
+### Abundance analyses  
+
+```{r abundance}
+source(paste0(script.dir, "Abundance_analyses.R"))
+```
+
+### Environmental analyses  
+
+```{r environmental}
+source(paste0(script.dir, "Environmental_analyses.R"))
+```
+
+### Diversity analyses  
+
+```{r diversity}
+source(paste0(script.dir, "Diversity_analyses.R"))
+```
+
+### Species accumulation curves analyses  
+
+```{r sp accumulation}
+source(paste0(script.dir, "Species_accumulation_curves.R"))
+```
+
+### Community composition analyses 
+
+Within the 'Bowman and Arnold - American Journal of Botany 2016 - Ordination analyses.R' script there is code to remove singletons, just uncomment them (remove # sign). The code as it is run has outliers removed, but you can include them by commenting out those lines (add # sign before code). All code is commented with explanations of what their function is.
+
+```{r community}
+source(paste0(script.dir, "Ordination_analyses.R"))
+```
+
+### Taxonomic analyses 
+
+```{r taxonomy}
+source(paste0(script.dir, "Taxonomic_analyses.R"))
+```
+
+### Indicator species analyses 
+
+
+```{r indicator}
+source(paste0(script.dir, "Indicator_species_analyses.R"))
+```
+
+### Relationship between EM and FE
+
+```{r EM vs FE}
+source(paste0(script.dir, "Relationship_between_EM_and_FE.R"))
+```
+
+### Topographical analyses
+
+```{r topography}
+source(paste0(script.dir, "Topographical_analyses.R"))
+```
