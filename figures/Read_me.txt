@@ -1,0 +1,1 @@
+Figures generated with particular R scripts will be output into this folder. All figures generated should be found in the manuscript.

@@ -1,0 +1,64 @@
+tree_number,endophyte_collection_date,elevation.m,site,species,topography,dbh.cm,growth.noted.2.7.15,abundance,species_richness,s,n,fishers_alpha
+LB004,11/9/14,2425,Bear Wallow,Pinus Ponderosa,Divergent,25.6239,0,0,0,0,0,0
+LB005,11/9/14,2425,Bear Wallow,Pinus Ponderosa,Divergent,46.6961,9,0.09375,8,8,8,32
+LB006,NA,2425,Bear Wallow,Pinus Ponderosa,Divergent,69.2642,0,0,0,0,0,0
+LB007,10/19/14,2370,Butterfly trail,Pinus Ponderosa,Convergent,55.2586,2,0.020833333,2,2,2,198
+LB008,10/19/14,2370,Butterfly trail,Pinus Ponderosa,Divergent,33.4544,5,0.052083333,3,3,4,5.46
+LB009,10/25/14,2370,Butterfly trail,Pinus Ponderosa,Convergent,62.8025,8,0.083333333,2,2,7,0.95
+LB010,10/25/14,2370,Butterfly trail,Pinus Ponderosa,Convergent,50.4203,2,0.020833333,2,2,2,198
+LB011,10/25/14,2370,Butterfly trail,Pinus Ponderosa,Divergent,79.1,9,0.09375,2,2,9,0.78
+LB012 adjacent,11/2/14,2370,Butterfly trail,Pinus Ponderosa,Divergent,43.3538,2,0.020833333,2,2,2,198
+LB013,11/9/14,1790,Middle Bear,Pinus Ponderosa,Convergent,54.1763,2,0.020833333,2,2,2,198
+LB014,11/9/14,1790,Middle Bear,Pinus Ponderosa,Divergent,50.1656,0,0,0,0,0,0
+LB015,11/9/14,1790,Middle Bear,Pinus Ponderosa,Divergent,54.4628,46,0.479166667,1,1,41,0.14
+LB016,11/9/14,1790,Middle Bear,Pinus Ponderosa,Convergent,29.5392,17,0.177083333,1,5,15,2.58
+LB017,11/9/14,1790,Middle Bear,Pinus Ponderosa,Convergent,34.0273,29,0.302083333,1,3,24,0.97
+LB018,NA,1790,Middle Bear,Pinus Ponderosa,Divergent,32.3721,0,0,0,0,0,0
+LB019,11/2/14,2170,Parking pullout South of Rose Canyon,Pinus Ponderosa,Divergent,65.731,15,0.15625,3,3,11,1.35
+LB020,11/2/14,2170,Parking pullout South of Rose Canyon,Pinus Ponderosa,Divergent,55.8952,4,0.041666667,1,1,2,0.81
+LB021,11/2/14,2170,Parking pullout South of Rose Canyon,Pinus Ponderosa,Convergent,56.9138,9,0.09375,2,2,8,0.86
+LB022,11/2/14,2170,Parking pullout South of Rose Canyon,Pinus Ponderosa,Convergent,49.8473,8,0.083333333,6,6,8,10.91
+LB023,11/2/14,2170,Parking pullout South of Rose Canyon,Pinus Ponderosa,Convergent,38.3882,8,0.083333333,4,4,7,3.85
+LB024,11/2/14,2170,Parking pullout South of Rose Canyon,Pinus Ponderosa,Divergent,41.1256,4,0.041666667,4,4,4,396
+LB025,11/9/14,1809,Green Mountain/Bug Springs,Pinus Ponderosa,Convergent,50.8659,32,0.333333333,2,2,31,0.47
+LB026,11/9/14,1809,Green Mountain/Bug Springs,Pinus Ponderosa,Convergent,38.611,3,0.03125,3,3,3,297
+LB027,11/9/14,1809,Green Mountain/Bug Springs,Pinus Ponderosa,Convergent,33.3589,2,0.020833333,1,1,2,0.81
+LB028,11/9/14,1809,Green Mountain/Bug Springs,Pinus Ponderosa,Divergent,34.473,0,0,0,0,0,0
+LB029,11/9/14,1809,Green Mountain/Bug Springs,Pinus Ponderosa,Divergent,33.7408,35,0.364583333,4,4,32,1.3
+LB030,11/9/14,1809,Green Mountain/Bug Springs,Pinus Ponderosa,Divergent,46.887,12,0.125,4,4,9,2.7
+LB031,10/25/14,2352,Sunset Trail,Pinus Ponderosa,Divergent,42.5899,4,0.041666667,3,3,4,5.46
+LB032,10/25/14,2352,Sunset Trail,Pinus Ponderosa,Divergent,49.1152,2,0.020833333,2,2,2,198
+LB033,11/2/14,2352,Sunset Trail,Pinus Ponderosa,Divergent,47.2372,3,0.03125,3,3,3,297
+LB034,10/25/14,2352,Sunset Trail,Pinus Ponderosa,Convergent,61.9749,2,0.020833333,2,2,2,198
+LB035,11/2/14,2352,Sunset Trail,Pinus Ponderosa,Convergent,90.4,6,0.0625,4,4,5,9.29
+LB036,10/25/14,2352,Sunset Trail,Pinus Ponderosa,Convergent,90.7183,13,0.135416667,6,6,10,6.39
+LB037,10/19/14,2343,Marshall Gulch,Pinus Ponderosa,Convergent,75.9806,11,0.114583333,4,4,9,2.73
+LB038,10/19/14,2343,Marshall Gulch,Pinus Ponderosa,Convergent,62.7389,19,0.197916667,2,2,13,0.64
+LB039,10/19/14,2343,Marshall Gulch,Pinus Ponderosa,Divergent,65.54,0,0,0,0,0,0
+LB040,10/19/14,2343,Marshall Gulch,Pinus Ponderosa,Divergent,73.0839,13,0.135416667,1,1,7,0.31
+LB041,10/19/14,2343,Marshall Gulch,Pinus Ponderosa,Divergent,71.6197,3,0.03125,2,2,2,198
+LB042,10/19/14,2343,Marshall Gulch,Pinus Ponderosa,Convergent,44.4997,8,0.083333333,2,2,7,0.95
+LB043,10/30/14,2421,Upper Solders Camp Rd.,Pinus Ponderosa,Divergent,54.2718,1,0.010416667,1,1,1,99
+LB044,10/30/14,2421,Upper Solders Camp Rd.,Pinus Ponderosa,Convergent,65.731,3,0.03125,3,3,3,297
+LB045,11/2/14,2421,Upper Solders Camp Rd.,Pinus Ponderosa,Convergent,58.2189,3,0.03125,1,1,1,99
+LB046,10/30/14,2421,Upper Solders Camp Rd.,Pinus Ponderosa,Convergent,60.0651,1,0.010416667,1,1,1,99
+LB047,10/30/14,2421,Upper Solders Camp Rd.,Pinus Ponderosa,Divergent,69.9645,2,0.020833333,1,1,2,0.81
+LB048,10/30/14,2421,Upper Solders Camp Rd.,Pinus Ponderosa,Divergent,48.0648,9,0.09375,3,3,7,2.01
+LB049,NA,2425,Bear Wallow,Pinus Ponderosa,Divergent,53.5397,0,0,0,0,0,0
+LB050,NA,2425,Bear Wallow,Pinus Ponderosa,Divergent,70.5056,0,0,0,0,0,0
+LB051,10/25/14,2425,Bear Wallow,Pinus Ponderosa,Divergent,64.9352,14,0.145833333,5,5,12,3.29
+LB052,10/25/14,2425,Bear Wallow,Pinus Ponderosa,Convergent,64.2349,18,0.1875,4,4,17,1.71
+LB053,10/30/14,2425,Bear Wallow,Pinus Ponderosa,Convergent,59.5558,18,0.1875,3,3,16,1.11
+LB054,10/30/14,2425,Bear Wallow,Pinus Ponderosa,Convergent,46.1231,4,0.041666667,3,3,4,5.46
+LB055,11/2/14,2425,Rose Canyon Rd.,Pinus Ponderosa,Convergent,47.0144,2,0.020833333,1,1,2,0.81
+LB056,11/2/14,2425,Rose Canyon Rd.,Pinus Ponderosa,Divergent,62.6116,17,0.177083333,5,5,13,2.91
+LB057,11/2/14,2201,Rose Canyon Rd.,Pinus Ponderosa,Divergent,46.8552,6,0.0625,4,4,6,5.34
+LB058,11/2/14,2201,Rose Canyon Rd.,Pinus Ponderosa,Convergent,47.3963,1,0.010416667,1,1,1,99
+LB059,11/2/14,2201,Rose Canyon Rd.,Pinus Ponderosa,Divergent,47.2372,17,0.177083333,4,4,15,1.84
+LB060,11/2/14,2201,Rose Canyon Rd.,Pinus Ponderosa,Convergent,65.4763,10,0.104166667,4,4,8,3.24
+LB061,11/2/14,2119,Pullout south of Willow Canyon Rd.,Pinus Ponderosa,Convergent,64.7442,3,0.03125,2,2,3,2.67
+LB062,11/2/14,2119,Pullout south of Willow Canyon Rd.,Pinus Ponderosa,Convergent,66.3676,5,0.052083333,1,1,1,99
+LB063,11/2/14,2119,Pullout south of Willow Canyon Rd.,Pinus Ponderosa,Convergent,82.0603,4,0.041666667,4,4,4,396
+LB064,11/2/14,2119,Pullout south of Willow Canyon Rd.,Pinus Ponderosa,Divergent,60.3834,2,0.020833333,1,1,2,0.81
+LB065,11/2/14,2119,Pullout south of Willow Canyon Rd.,Pinus Ponderosa,Divergent,66.0493,1,0.010416667,1,1,1,99
+LB066,11/2/14,2119,Pullout south of Willow Canyon Rd.,Pinus Ponderosa,Divergent,62.5797,2,0.020833333,2,2,2,198

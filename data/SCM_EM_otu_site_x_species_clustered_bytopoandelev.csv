@@ -1,0 +1,21 @@
+Site,Elevation,Topography,Group,Plant community,Average temperature warm quarter,Phosphate,OTU102,OTU111,OTU55,OTU57,OTU6,OTU12,OTU128,OTU73,OTU46,OTU63,OTU88,OTU37,OTU24,OTU25,OTU120,OTU56,OTU77,OTU59,OTU4,OTU38,OTU21
+Middle Bear,1790,Convergent,Low elev.,Pinus-Quercus,21.32110842,4,0,0,4,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,2
+Middle Bear,1790,Divergent,Low elev.,Pinus-Quercus,21.32110842,6,0,0,1,0,0,0,0,1,0,0,0,0,3,0,0,1,0,0,1,0,3
+Green Mountain/Bug Springs,1809,Convergent,Low elev.,Pinus-Quercus,21.32110842,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,2
+Green Mountain/Bug Springs,1809,Divergent,Low elev.,Pinus-Quercus,21.32110842,6.3,0,0,0,3,0,0,0,1,0,1,0,0,0,0,0,1,7,0,1,0,2
+Pullout south of Willow Canyon Rd.,2119,Convergent,Low elev.,Pinus-Quercus,19.86062272,6.3,0,1,0,0,0,0,0,0,0,2,3,0,0,0,0,0,0,0,1,0,3
+Pullout south of Willow Canyon Rd.,2119,Divergent,Low elev.,Pinus-Quercus,19.86062272,21.9,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,3,2,3
+Pullout south of Rose Canyon Rd.,2170,Convergent,Low elev.,Pinus-Quercus,19.42297029,6.2,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,2,0,1,0,0
+Pullout south of Rose Canyon Rd.,2170,Divergent,Low elev.,Pinus-Quercus,19.42297029,10.3,0,0,0,1,0,0,0,0,0,0,3,0,1,0,0,3,4,0,2,0,3
+Rose Canyon Rd.,2201,Convergent,Low elev.,Pinus,18.64670493,6.5,1,2,0,0,0,0,0,0,0,0,0,3,1,0,0,2,0,0,2,3,4
+Rose Canyon Rd.,2201,Divergent,Low elev.,Pinus,18.64670493,5.2,2,0,0,0,0,0,0,4,0,1,1,2,0,0,0,0,0,0,3,1,4
+Marshall Gulch,2343,Convergent,High elev.,Pinus-Pseudotsuga,17.72402374,84,0,0,0,0,2,0,0,0,0,0,0,0,1,2,0,1,0,0,1,0,0
+Marshall Gulch,2343,Divergent,High elev.,Pinus-Pseudotsuga,17.72402374,35.5,1,1,0,0,0,1,0,0,0,1,1,0,0,0,0,1,0,0,0,2,1
+Sunset Trail,2352,Convergent,High elev.,Pinus,17.87608429,12,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sunset Trail,2352,Divergent,High elev.,Pinus,17.87608429,37.5,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,1,0,5,0,4,3
+Butterfly Trail,2370,Convergent,High elev.,Pinus-Pseudotsuga,18.52442701,29.5,0,0,0,0,1,2,0,0,4,0,0,2,1,1,0,0,0,0,0,1,2
+Butterfly Trail,2370,Divergent,High elev.,Pinus-Pseudotsuga,18.52442701,10,0,0,0,0,1,0,0,0,0,1,0,1,0,3,0,1,0,5,0,1,1
+Upper Solders Camp Rd.,2421,Convergent,High elev.,Pinus-Pseudotsuga,18.25364365,6.2,0,0,0,0,0,0,0,0,1,0,0,0,0,0,4,0,0,0,1,4,2
+Upper Solders Camp Rd.,2421,Divergent,High elev.,Pinus-Pseudotsuga,18.25364365,6.2,0,0,0,0,0,0,0,0,3,0,0,0,0,0,4,0,0,2,0,4,2
+Bear Wallow,2425,Convergent,High elev.,Pinus-Pseudotsuga-Mixed,17.869886,9.675,0,0,0,1,0,0,3,0,0,0,0,0,1,0,3,0,0,2,0,0,3
+Bear Wallow,2425,Divergent,High elev.,Pinus-Pseudotsuga-Mixed,17.869886,7.5,0,0,0,0,0,0,3,0,0,0,0,0,1,4,0,0,0,0,1,0,2

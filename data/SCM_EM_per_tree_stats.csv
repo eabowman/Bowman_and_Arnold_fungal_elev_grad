@@ -1,0 +1,63 @@
+tree_number,site,elevation.m,species,group,topography,p.c,dbh_cm,morphotypes,colonized_rt_tips,root_weight.g,species_richness,s,n,fishers_alpha,abundance
+LB004,Bear Wallow (DF/PP comparison,2425,Pinus Ponderosa,High elev.,Divergent,p.f.md,25.62394587,2,17,15.465,2,2,3,0.96,1.099256385
+LB005,Bear Wallow (DF/PP comparison,2425,Pinus Ponderosa,High elev.,Divergent,p.f.md,46.69606036,2,24,10.832,2,2,2,1.23,2.215657312
+LB006,Bear Wallow (DF/PP comparison,2425,Pinus Ponderosa,High elev.,Divergent,p.f.md,69.26423131,3,15,13.317,3,3,3,1.69,1.126379815
+LB007,Butterfly trail,2370,Pinus Ponderosa,High elev.,Convergent,p.f,55.2585963,8,344,11.483,8,8,13,9.071307301,29.95732822
+LB008,Butterfly trail,2370,Pinus Ponderosa,High elev.,Divergent,p.f,33.45436908,8,176,5.416,8,8,9,54.47619048,32.49630724
+LB009,Butterfly trail,2370,Pinus Ponderosa,High elev.,Convergent,p.f,62.80254062,8,241,6.041,8,8,12,10.68431002,39.89405728
+LB010,Butterfly trail,2370,Pinus Ponderosa,High elev.,Convergent,p.f,50.42028603,6,210,17.404,6,6,6,594,12.06619168
+LB011,Butterfly trail,2370,Pinus Ponderosa,High elev.,Divergent,p.f,79.10000681,10,162,15.983,10,10,11,35.14814815,10.13576925
+LB012,Butterfly trail,2370,Pinus Ponderosa,High elev.,Divergent,p.f,55.0039484,4,292,37.442,4,4,7,3.852713178,7.7987287
+LB012 adjacent,Butterfly trail,2370,Pinus Ponderosa,High elev.,Divergent,p.f,43.35380655,3,108,12.118,3,3,4,5.456264775,8.912361776
+LB013,Middle Bear,1790,Pinus Ponderosa,Low elev.,Convergent,o.p,54.17634269,4,28,20.094,4,4,5,9.285714286,1.393450781
+LB014,Middle Bear,1790,Pinus Ponderosa,Low elev.,Divergent,o.p,50.16563812,5,67,9.019,5,5,5,4995,7.428761503
+LB015,Middle Bear,1790,Pinus Ponderosa,Low elev.,Divergent,o.p,54.46282159,5,43,21.047,5,5,5,4995,2.043046515
+LB016,Middle Bear,1790,Pinus Ponderosa,Low elev.,Convergent,o.p,29.53915747,5,92,8.638,5,5,5,4995,10.65061357
+LB017,Middle Bear,1790,Pinus Ponderosa,Low elev.,Convergent,o.p,34.02732687,6,70,19.394,6,6,6,5994,3.609363721
+LB018,Middle Bear,1790,Pinus Ponderosa,Low elev.,Divergent,o.p,32.37211546,8,167,8.118,8,8,10,18.57142857,20.57156935
+LB019,Parking pullout South of Rose Canyon,2170,Pinus Ponderosa,Low elev.,Divergent,o.p,65.73099157,5,76,7.649,5,5,7,7.675052411,9.935939338
+LB020,Parking pullout South of Rose Canyon,2170,Pinus Ponderosa,Low elev.,Divergent,o.p,55.89521608,6,233,2.864,6,6,9,8.013232514,81.3547486
+LB021,Parking pullout South of Rose Canyon,2170,Pinus Ponderosa,Low elev.,Convergent,o.p,56.91380771,3,80,6.267,3,3,3,2997,12.76527844
+LB023,Parking pullout South of Rose Canyon,2170,Pinus Ponderosa,Low elev.,Convergent,o.p,38.38817232,8,158,6.691,8,8,10,18.57142857,23.61380959
+LB024,Parking pullout South of Rose Canyon,2170,Pinus Ponderosa,Low elev.,Divergent,o.p,41.12563734,5,153,4.162,5,5,7,7.675052411,36.76117251
+LB025,Green Mountain/Bug Springs,1809,Pinus Ponderosa,Low elev.,Convergent,o.p,50.86591987,1,37,15.82,1,1,2,0.797202797,2.338811631
+LB026,Green Mountain/Bug Springs,1809,Pinus Ponderosa,Low elev.,Convergent,o.p,38.61098924,2,23,2.984,2,2,2,1998,7.707774799
+LB027,Green Mountain/Bug Springs,1809,Pinus Ponderosa,Low elev.,Convergent,o.p,33.35887611,4,10,2.192,4,4,4,3996,4.562043796
+LB028,Green Mountain/Bug Springs,1809,Pinus Ponderosa,Low elev.,Divergent,o.p,34.47296071,0,0,4.884,0,0,0,0,0
+LB029,Green Mountain/Bug Springs,1809,Pinus Ponderosa,Low elev.,Divergent,o.p,33.74084797,5,215,6.277,5,5,11,3.473684211,34.25203123
+LB030,Green Mountain/Bug Springs,1809,Pinus Ponderosa,Low elev.,Divergent,o.p,46.88704629,5,105,6.438,5,5,7,7.675052411,16.30941286
+LB031,Sunset Trail,2352,Pinus Ponderosa,High elev.,Divergent,p,42.58986282,7,148,3.032,7,7,9,14.80952381,48.81266491
+LB032,Sunset Trail,2352,Pinus Ponderosa,High elev.,Divergent,p,49.11521549,4,157,3.616,4,4,8,3.188811189,43.41814159
+LB033,Sunset Trail,2352,Pinus Ponderosa,High elev.,Divergent,p,47.23718716,9,183,3.92,9,9,10,44.05405405,46.68367347
+LB034,Sunset Trail,2352,Pinus Ponderosa,High elev.,Convergent,p,61.97493491,4,49,7.455,4,4,5,9.285714286,6.572769953
+LB035,Sunset Trail,2352,Pinus Ponderosa,High elev.,Convergent,p,90.40000778,3,45,5.603,3,3,3,3996,8.031411744
+LB037,Marshall Gulch,2343,Pinus Ponderosa,High elev.,Convergent,p.f,75.98056992,7,76,4.759,7,7,7,6993,15.96974154
+LB038,Marshall Gulch,2343,Pinus Ponderosa,High elev.,Convergent,p.f,62.73887864,2,29,7.903,2,2,2,1998,3.669492598
+LB039,Marshall Gulch,2343,Pinus Ponderosa,High elev.,Divergent,p.f,65.54000564,8,227,4.692,8,8,8,7992,48.38022165
+LB040,Marshall Gulch,2343,Pinus Ponderosa,High elev.,Divergent,p.f,73.08394995,3,21,5.739,3,3,3,2997,3.659174072
+LB041,Marshall Gulch,2343,Pinus Ponderosa,High elev.,Divergent,p.f,71.61972447,7,127,5.88,7,7,7,6993,21.59863946
+LB042,Marshall Gulch,2343,Pinus Ponderosa,High elev.,Convergent,p.f,44.49972214,9,308,9.927,9,9,11,23.48275862,31.0264934
+LB043,Upper Solders Camp Rd.,2421,Pinus Ponderosa,High elev.,Divergent,p.f,54.27183566,7,104,4.239,7,7,9,14.80952381,24.53408823
+LB044,Upper Solders Camp Rd.,2421,Pinus Ponderosa,High elev.,Convergent,p.f,65.73099157,6,121,10.217,6,6,9,10.44989775,11.84300675
+LB045,Upper Solders Camp Rd.,2421,Pinus Ponderosa,High elev.,Convergent,p.f,58.21887825,3,58,10.825,3,3,4,5.342155009,5.357967667
+LB046,Upper Solders Camp Rd.,2421,Pinus Ponderosa,High elev.,Convergent,p.f,60.06507559,2,84,8.015,2,2,5,2.71875,10.48034934
+LB047,Upper Solders Camp Rd.,2421,Pinus Ponderosa,High elev.,Divergent,p.f,69.96451306,4,116,4.696,4,4,8,3.188811189,24.70187394
+LB048,Upper Solders Camp Rd.,2421,Pinus Ponderosa,High elev.,Divergent,p.f,48.06479287,4,99,6.371,4,4,4,3996,15.53916183
+LB049,Bear Wallow,2425,Pinus Ponderosa,High elev.,Divergent,p.f.md,53.53972292,2,68,9.501,2,2,3,20.45098039,7.157141354
+LB050,Bear Wallow,2425,Pinus Ponderosa,High elev.,Divergent,p.f.md,70.50563987,1,57,16.826,1,1,1,999,3.387614406
+LB051,Bear Wallow,2425,Pinus Ponderosa,High elev.,Divergent,p.f.md,64.93521686,4,66,11.01,4,4,7,6.927444795,5.994550409
+LB052,Bear Wallow,2425,Pinus Ponderosa,High elev.,Convergent,p.f.md,64.23493511,5,150,9.428,5,5,7,7.675052411,15.91005515
+LB053,Bear Wallow,2425,Pinus Ponderosa,High elev.,Convergent,p.f.md,59.55577977,6,149,14.832,6,6,7,20.45098039,10.04584682
+LB054,Bear Wallow,2425,Pinus Ponderosa,High elev.,Convergent,p.f.md,46.12310256,7,142,7.11,7,7,9,10.44989775,19.9718706
+LB055,Rose Canyon Rd.,2201,Pinus Ponderosa,Low elev.,Convergent,p,47.01437024,8,244,7.866,8,8,10,18.57142857,31.01957793
+LB056,Rose Canyon Rd.,2201,Pinus Ponderosa,Low elev.,Divergent,p,62.61155468,8,223,7.828,8,8,12,10.68431002,28.48748084
+LB057,Rose Canyon Rd.,2201,Pinus Ponderosa,Low elev.,Divergent,p,46.8552153,9,291,12.279,9,9,14,10.77876106,23.69899829
+LB058,Rose Canyon Rd.,2201,Pinus Ponderosa,Low elev.,Convergent,p,47.39634211,9,211,7.659,9,9,15,9.590163934,27.54928842
+LB059,Rose Canyon Rd.,2201,Pinus Ponderosa,Low elev.,Divergent,p,47.23718716,10,707,6.883,10,10,13,19.99492386,102.7168386
+LB060,Rose Canyon Rd.,2201,Pinus Ponderosa,Low elev.,Convergent,p,65.47634366,6,394,8.464,6,6,9,8.013232514,46.55009452
+LB061,Pullout south of Willow Canyon Rd.,2119,Pinus Ponderosa,Low elev.,Convergent,o.p,64.74423092,0,0,12.828,0,0,0,0,0
+LB062,Pullout south of Willow Canyon Rd.,2119,Pinus Ponderosa,Low elev.,Convergent,o.p,66.36761135,7,200,19.666,7,7,11,8.469026549,10.16983627
+LB063,Pullout south of Willow Canyon Rd.,2119,Pinus Ponderosa,Low elev.,Convergent,o.p,82.06028875,1,27,1.843,1,1,1,999,14.65002713
+LB064,Pullout south of Willow Canyon Rd.,2119,Pinus Ponderosa,Low elev.,Divergent,o.p,60.38338548,4,29,21.938,4,4,4,3996,1.321907193
+LB065,Pullout south of Willow Canyon Rd.,2119,Pinus Ponderosa,Low elev.,Divergent,o.p,66.04930146,8,182,10.389,8,8,8,7992,17.51852921
+LB066,Pullout south of Willow Canyon Rd.,2119,Pinus Ponderosa,Low elev.,Divergent,o.p,62.5797237,7,179,9.569,7,7,10,10.44989775,18.7062389
