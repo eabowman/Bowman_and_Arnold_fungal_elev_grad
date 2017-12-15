@@ -18,11 +18,11 @@ otu.data <- read.csv(paste0(dat.dir, 'SCM_EM_otu_based_site_x_species_matrix.csv
 #-----------------------------------------------------------------------------------------
 #<< Overall EM, with singletons included >>-----------------------------------------------
 #--isolate OTUs
-em.indsp <- otu.data[5:length(otu.data)]
+em.indsp <- otu.data[6:length(otu.data)]
 #--pull out elevation group data for grouping
-El_group = otu.data$group
+Pl_comm = otu.data$plant.comm
 #--Association between species patterns and high/low elevation sites
-indsp.em <- multipatt(em.indsp, El_group, func = "IndVal") # uses default func = "IndVal"
+indsp.em <- multipatt(em.indsp, Pl_comm, func = "IndVal") # uses default func = "IndVal"
 #--print summary
 summary(indsp.em)
 #--Components A and B. 
@@ -48,9 +48,9 @@ abund.data <- read.csv(paste0(dat.dir, 'SCM_EM_root_based_site_x_species_matrix.
 # Indicator analysis
 #-----------------------------------------------------------------------------------------
 #--isolate OTUs
-abund.indsp <- abund.data[5:length(abund.data)]
+abund.indsp <- abund.data[6:length(abund.data)]
 #--pull out elevation group data for grouping
-El_group = abund.data$group
+El_group = abund.data$plant.comm
 #--Association between species patterns and high/low elevation sites
 indsp.abund <- multipatt(abund.indsp, El_group) # uses default func = "IndVal"
 #--print summary
@@ -81,7 +81,7 @@ fe.data <- read.csv(paste0(dat.dir, 'SCM_FE_site_x_species_matrix.csv'),
 #--isolate OTUs
 fe.indsp <- fe.data[2:41]
 #--pull out elevation group data for grouping
-El_group = fe.data$group
+El_group = fe.data$plant.comm
 #--Association between species patterns and high/low elevation sites
 indsp.fe <- multipatt(fe.indsp, El_group) # uses default func = "IndVal"
 #--print summary
