@@ -210,7 +210,7 @@ permanova.res[which(permanova.res$test == "em.j"), "p.pl.comm"] <-
 rm(comm.matrix, jaccard.otu, comm.dist.jaccard, nmds.otu)
 
 #=========================================================================================
-# Ectomycorrhizal fungi-Morisita (Method 1)------
+# Ectomycorrhizal fungi-Morisita horn (Method 1)------
 #=========================================================================================
 #--Remove non-em fungi only from dataframe
 nmds.otu <- otu.data[!(otu.data$tree_number %in% root.out),]
@@ -253,7 +253,7 @@ layout(matrix(1:2,nrow=1),widths=c(0.8,0.2))
 colfunc <- colorRampPalette(c("white","black"))
 par(mar=c(5,6,4,4)+.1)
 
-#--Plot NMDS of EM community based on Morisita index and OTU abundance
+#--Plot NMDS of EM community based on Morisita horn index and OTU abundance
 plot(horn.abund, display = "sites", type = "n", cex.lab = 2.5,
      cex.axis = 2.5, xlab = 'Axis 1', ylab = 'Axis 2')
 #--color for groups
@@ -339,7 +339,7 @@ anosim.res[which(anosim.res$anosim.res =="em.h"), "p"] <- em.horn.anosim$signif
 #--isolate otu data
 comm.matrix <- jac.perm[8:28]
 
-#--distance matrix using morisita index
+#--distance matrix using morisita horn index
 comm.dist.horn <- vegdist(comm.matrix, method = "horn", binary = F)
 
 #--adonis
@@ -370,7 +370,7 @@ permanova.res[which(permanova.res$test == "em.h"), "p.pl.comm"] <-
   em.horn.adonis$aov.tab$`Pr(>F)`[3]
 
 #=========================================================================================
-# Ectomycorrhizal fungi-Morisita (Method 2)------
+# Ectomycorrhizal fungi-Morisita horn (Method 2)------
 #=========================================================================================
 #--Remove non-em fungi only from dataframe
 nmds.ab <- abund.data[!(abund.data$tree_number %in% root.out),]
@@ -397,7 +397,7 @@ comm.matrix <- comm.matrix[which(colSums(comm.matrix) >= 5)]
 #nmds.rooto <- nmds.rooto[-rows.removed,]
 
 #--distance matrix using jaccard index
-comm.dist.horn <- vegdist(comm.matrix, method = "morisita", binary = F)
+comm.dist.horn <- vegdist(comm.matrix, method = "horn", binary = F)
 
 #--NMDS analysis
 horn.abund <- metaMDS(comm.dist.horn, dist = "bray", permutations = 999, try = 500, 
@@ -486,7 +486,7 @@ anosim.res[which(anosim.res$anosim.res =="em.m"), "p.betadisper"] <-
   em.m.homo$`Pr(>F)`[1]
 
 # << ANOSIM >>----------------------------------------------------------------------------
-em.horn.anosim <- anosim(comm.matrix, grouping = nmds.ab$plant.comm, distance = "morisita")
+em.horn.anosim <- anosim(comm.matrix, grouping = nmds.ab$plant.comm, distance = "horn")
 #--Add results to data frame
 anosim.res[which(anosim.res$anosim.res =="em.m"), "r"] <- em.horn.anosim$statistic
 anosim.res[which(anosim.res$anosim.res =="em.m"), "p"] <- em.horn.anosim$signif
@@ -497,8 +497,8 @@ anosim.res[which(anosim.res$anosim.res =="em.m"), "p"] <- em.horn.anosim$signif
 #--isolate otu data
 comm.matrix <- mor.perm[8:130]
 
-#--distance matrix using morisita index
-comm.dist.horn <- vegdist(comm.matrix, method = "morisita", binary = F)
+#--distance matrix using morisita horn index
+comm.dist.horn <- vegdist(comm.matrix, method = "horn", binary = F)
 
 #--adonis
 em.horn.adonis <- adonis(formula = comm.dist.horn ~ Average.temperature.warm.quarter
@@ -593,7 +593,7 @@ anosim.res[which(anosim.res$anosim.res =="fe.j"), "r"] <-
 anosim.res[which(anosim.res$anosim.res =="fe.j"), "p"] <- fe.jaccard.anosim$signif
 
 #=========================================================================================
-# Endophytic fungi-Morisita
+# Endophytic fungi-Morisita horn
 #=========================================================================================
 #-----------------------------------------------------------------------------------------
 # Clean up data
@@ -620,7 +620,7 @@ comm.matrix <- nmds.fe[2:41]
 comm.matrix <- comm.matrix[which(colSums(comm.matrix) >= 1)]
 #--comment to add singletons
 comm.matrix <- comm.matrix[which(colSums(comm.matrix) >= 2)]
-#--distance matrix using morisita index
+#--distance matrix using morisita horn index
 comm.dist.horn <- vegdist(comm.matrix, method = "horn", binary = F)
 
 #--NMDS analysis
@@ -637,7 +637,7 @@ layout(matrix(1:2,nrow=1),widths=c(0.8,0.2))
 colfunc <- colorRampPalette(c("white","black"))
 par(mar=c(5,6,4,4)+.1)
 
-#--Plot NMDS of EM community based on Morisita index and OTU abundance
+#--Plot NMDS of EM community based on Morisita horn index and OTU abundance
 plot(horn.abund, display = "sites", type = "n", cex.lab = 2.5,
      cex.axis = 2.5, xlab = 'Axis 1', ylab = 'Axis 2')
 #--color for groups
@@ -825,7 +825,7 @@ comm.matrix <- comm.matrix[which(colSums(comm.matrix) >= 1)]
 #--remove singletons
 comm.matrix <- comm.matrix[which(colSums(comm.matrix) >= 2)]
 
-#--distance matrix using jaccard index
+#--distance matrix using morisita-horn index
 comm.dist.horn <- vegdist(comm.matrix, method = "morisita", binary = F)
 #--NMDS analysis
 morisita.abund <- metaMDS(comm.dist.horn, dist = "bray", permutations = 999, try = 50, 
@@ -842,7 +842,7 @@ layout(matrix(1:2,nrow=1),widths=c(0.8,0.2))
 colfunc <- colorRampPalette(c("white","black"))
 par(mar=c(5,6,4,4)+.1)
 
-#--Plot NMDS of EM community based on Morisita index and OTU abundance
+#--Plot NMDS of EM community based on Morisita-horn index and OTU abundance
 plot(morisita.abund, display = "sites", type = "n", cex.lab = 2.5,
      cex.axis = 2.5, xlab = 'Axis 1', ylab = 'Axis 2')
 #--color for groups
