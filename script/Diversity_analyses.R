@@ -89,7 +89,7 @@ fe.div <- fe.div[-which(fe.div$Elevation == 2421 & fe.div$topography == 'Converg
 # FE diversity analyses
 #-----------------------------------------------------------------------------------------
 #<< Fisher's alpha >> -----------
-lm.fe.fa <- lm(log(fishers.alpha) ~ Elevation, data = fe.div.out)
+lm.fe.fa <- lm(log(fishers.alpha) ~ Elevation, data = fe.div)
 fe.fa.anova <- summary(lm.fe.fa)
 fe.fa.anova
 #--add data to results table
@@ -177,20 +177,18 @@ fe.div.out <- fe.div[-5,]
 fe.div.plot <- ggplot(fe.div.out) +
   geom_point(aes(x = Elevation, y = fishers.alpha, color = plant.community),
              size = 5, shape = 0, stroke = 2) +
-  geom_point(aes(x = Elevation, y = shannon.index * 10 / 0.10, color = plant.community),
+  geom_point(aes(x = Elevation, y = shannon.index * 10 / 2.1, color = plant.community),
              size = 5, shape = 2, stroke = 2) +
-  geom_smooth(method=lm,
-              se=FALSE)
   theme_bw() +
   xlab('Elevation (m)') +
   ylab("Fisher's alpha") +
-  scale_y_continuous(sec.axis = sec_axis(~ . * 10 / 600 , name = "Shannon's index"),
+  scale_y_continuous(sec.axis = sec_axis(~ . * 10 / 43 , name = "Shannon's index"),
                      limits = c(0, 10)) +
   #scale_y_continuous(sec.axis = sec_axis(~.*5, name = "Shannon's index")) +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
   theme(axis.text = element_text(size=22, color = 'black'),
         axis.title = element_text(size = 28),
-        legend.position = c(0.25,0.89),
+        legend.position = c(0.25,0.88),
         legend.text=element_text(size=14),
         legend.title=element_text(size=16)) +
   scale_color_manual(values = c('o.p' = '#d7191c', 'p' = '#fdae61',

@@ -624,7 +624,7 @@ comm.matrix <- comm.matrix[which(colSums(comm.matrix) >= 2)]
 comm.dist.horn <- vegdist(comm.matrix, method = "horn", binary = F)
 
 #--NMDS analysis
-horn.abund <- metaMDS(comm.dist.horn, dist = "bray", permutations = 999, try = 50, 
+horn.abund <- metaMDS(comm.dist.horn, dist = "horn", permutations = 999, try = 50, 
                       trymax = 1000)
 #--add stress of NMDS to results table
 anosim.res[which(anosim.res$anosim.res =="fe.m"), "stress.nmds"] <-
@@ -695,7 +695,7 @@ mtext(c(1790,1809,2119,2170,2201,2343,2352,2370,2421,2425),
 dev.off()
 
 #<< BetaDisper:a multivariate analogue of Levene's test for homogeneity of variance >> ---
-betadisper <- betadisper(comm.dist.horn, group = nmds.fe$group)
+betadisper <- betadisper(comm.dist.horn, group = nmds.fe$p.c)
 #--ANOVA to assess if the variances are different, the distances of group members to the
 #--group centroid are subject to ANOVA
 fe.m.homo <- anova(betadisper)
