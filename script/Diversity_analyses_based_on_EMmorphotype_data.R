@@ -49,9 +49,9 @@ div.out[div.out$test == 'Shannon', 'p'] <- em.anova$`Pr(>F)`[1]
 #<< Plot >> ------------------------------------
 em.div.plot <- ggplot(div.topo.data) +
   geom_point(aes(x = Elevation, y = fishers.alpha, color = plant.community),
-             size = 5, shape = 0) +
+             size = 5, shape = 0, stroke = 2) +
   geom_point(aes(x = Elevation, y = shannon.diversity * 4.1 / 2.5, color = plant.community),
-             size = 5, shape = 2) +
+             size = 5, shape = 2, stroke = 2) +
   theme_bw() +
   xlab('Elevation (m)') +
   ylab("Fisher's alpha") +

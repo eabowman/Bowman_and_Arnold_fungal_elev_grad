@@ -24,37 +24,11 @@ ov.em <- ov.em[which(colSums(ov.em) != 0)]
 #--abundance for each otu, double check for discrepancies
 summarise_each(ov.em,funs(sum))
 
-#<< With singeltons included, Low elevation group, EM >>----------------------------------
-#--Isolate OTU data, low elevation
-le.em <- otu.data[which(otu.data$group == "Low elev."), ]
-le.em <- le.em[6:length(le.em)]
-#--remove columns equal to 0, no species occurence
-le.em <- le.em[which(colSums(le.em) != 0)]
-
-#<< With singeltons included, High elevation group, EM >>---------------------------------
-#--Isolate OTU data, high elevation
-he.em <- otu.data[which (otu.data$group == "High elev."), ]
-he.em <- he.em[6:length(le.em)]
-#--remove columns equal to 0, no species occurence
-he.em <- he.em[which(colSums(he.em) != 0)]
-
 #<< With singeltons removed, Overall EM >>------------------------------------------------
 #--Using previous dataframe, remove singletons
-ovns.em <- ov.em[which(colSums(ov.em) != 1)]
+ovns.em <- ov.em[which(colSums(ov.em) > 1)]
 #--abundance for each otu, double check for discrepancies
 colSums(ovns.em)
-
-#<< With singeltons removed, Low elevation group, EM >>-----------------------------------
-#--Using previous dataframe, remove singletons
-lens.em <- le.em[which(colSums(le.em) != 1)]
-#--abundance for each otu, double check for discrepancies
-colSums(lens.em)
-
-#<< With singeltons removed, High elevation group, EM >>----------------------------------
-#--Using previous dataframe, remove singletons
-hens.em <- he.em[which(colSums(he.em) != 1)]
-#--abundance for each otu, double check for discrepancies
-colSums (hens.em)
 
 #-----------------------------------------------------------------------------------------
 # EM species accumulation curve based on root tip count, combined plots

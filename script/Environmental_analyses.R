@@ -7,7 +7,7 @@
 # Analysis of soil community similarity
 #=========================================================================================
 #-----------------------------------------------------------------------------------------
-# Read in data frame and isolate high and low elevation data
+# Read in data frame
 #-----------------------------------------------------------------------------------------
 
 #--results table
@@ -17,21 +17,11 @@ soil.similarity <- data.frame(soil = c('all.sites', 'high', 'low'), df.1 = NA, d
 #--read in soil data
 soil.data <- read.csv(paste0(dat.dir, 'SCM_soil.csv'), as.is = T, header = T)
 
-#<< mean pairwise analysis of within group variation and between group variation>> -------
-high.soil <- soil.data[soil.data$elevation > 2300,]
-low.soil <- soil.data[soil.data$elevation < 2300,]
-high.dist <- vegdist(high.soil[4:19], method = 'euclidean')
-low.dist <- vegdist(low.soil[4:19], method = 'euclidean')
+#<< mean pairwise analysis of between group variation>> -------
 soil.dist <- vegdist(soil.data[4:19], method = 'euclidean')
 
-#--PERMANOVA comparing soil similarity across elevation groups
-soil.all <- adonis(soil.dist ~ group, data = soil.data)
-
-#--PERMANOVA comparing soil similarity across plant community in high elevation group
-soil.high <- adonis(high.dist ~ p.c, data = high.soil)
-
-#--PERMANOVA comparing soil similarity across plant community in low elevation group
-soil.low <- adonis(low.dist ~ p.c, data = low.soil)
+#--PERMANOVA comparing soil similarity across elevations
+soil.all <- adonis(soil.dist ~ elevation, data = soil.data)
 
 # << add results to results table >> -----------------------------------------------------
 
@@ -42,22 +32,6 @@ soil.similarity[soil.similarity$soil == 'all.sites', 'f.stat'] <-
   soil.all$aov.tab$F.Model[1]
 soil.similarity[soil.similarity$soil == 'all.sites', 'r.sq'] <- soil.all$aov.tab$R2[1]
 soil.similarity[soil.similarity$soil == 'all.sites', 'p'] <- soil.all$aov.tab$`Pr(>F)`[1]
-
-#--across high elevation sites
-soil.similarity[soil.similarity$soil == 'high', 'df.1'] <- soil.high$aov.tab$Df[1]
-soil.similarity[soil.similarity$soil == 'high', 'df.2'] <- soil.high$aov.tab$Df[2]
-soil.similarity[soil.similarity$soil == 'high', 'f.stat'] <-
-  soil.high$aov.tab$F.Model[1]
-soil.similarity[soil.similarity$soil == 'high', 'r.sq'] <- soil.high$aov.tab$R2[1]
-soil.similarity[soil.similarity$soil == 'high', 'p'] <- soil.high$aov.tab$`Pr(>F)`[1]
-
-#--across low elevation sites
-soil.similarity[soil.similarity$soil == 'low', 'df.1'] <- soil.low$aov.tab$Df[1]
-soil.similarity[soil.similarity$soil == 'low', 'df.2'] <- soil.low$aov.tab$Df[2]
-soil.similarity[soil.similarity$soil == 'low', 'f.stat'] <-
-  soil.low$aov.tab$F.Model[1]
-soil.similarity[soil.similarity$soil == 'low', 'r.sq'] <- soil.low$aov.tab$R2[1]
-soil.similarity[soil.similarity$soil == 'low', 'p'] <- soil.low$aov.tab$`Pr(>F)`[1]
 
 #--write out results table
 write.csv(soil.similarity, paste0(res.dir,
@@ -90,38 +64,58 @@ plot(man.corr)
 title(main = 'All sites')
 
 #-----------------------------------------------------------------------------------------
-# Exploration of high and low elevation groups separately
+# Exploration of plant communities separately
 # soil and geographical distance
 #-----------------------------------------------------------------------------------------
-#--partition soil.data into high and low elevation groups
-high.soil <- soil.data[ which(soil.data$group == 'High elev.'), ]
-low.soil <- soil.data[ which(soil.data$group == 'Low elev.'), ]
+#--partition soil.data into plant communities
+op.soil <- soil.data[ which(soil.data$p.c == 'o.p'), ]
+p.soil <- soil.data[ which(soil.data$p.c == 'p'), ]
+pf.soil <- soil.data[ which(soil.data$p.c == 'p.f'), ]
+pfmd.soil <- soil.data[ which(soil.data$p.c == 'p.f.md'), ]
 
 #--soil data distance matrix
-env.dist.h <- vegdist(scale(high.soil [4:19]), method = "euclidean")
-env.dist.l <- vegdist(scale(low.soil [4:19]), method = "euclidean")
+env.dist.op <- vegdist(scale(op.soil [4:19]), method = "euclidean")
+env.dist.p <- vegdist(scale(p.soil [4:19]), method = "euclidean")
+env.dist.pf <- vegdist(scale(pf.soil [4:19]), method = "euclidean")
+env.dist.pfmd <- vegdist(scale(pfmd.soil [4:19]), method = "euclidean")
 
 #--distance matrix of geographical data
-geo.dist.h <- dist(high.soil[22:23])
-geo.dist.l <- dist(low.soil[22:23])
+geo.dist.op <- dist(op.soil[22:23])
+geo.dist.p <- dist(p.soil[22:23])
+geo.dist.pf <- dist(pf.soil[22:23])
+geo.dist.pfmd <- dist(pfmd.soil[22:23])
 
-#--mantel
-mantel.h <- mantel(env.dist.h, geo.dist.h)
-print(mantel.h)
+#--mantel: oak pine
+mantel.op <- mantel(env.dist.op, geo.dist.op)
+print(mantel.op)
 
-#--Mantel correlogram
-man.corr.h <- mantel.correlog(env.dist.h, geo.dist.h)
-plot(man.corr.h)
-title(main = 'High elevation sites')
+man.corr.op <- mantel.correlog(env.dist.op, geo.dist.op)
+plot(man.corr.op)
+title(main = 'Pine-oak')
 
-#--mantel
-mantel.l <- mantel(env.dist.l, geo.dist.l)
-print(mantel.l)
+#--mantel: Pine
+mantel.p <- mantel(env.dist.p, geo.dist.p)
+print(mantel.p)
 
-#--Mantel correlogram
-man.corr.l <- mantel.correlog(env.dist.l, geo.dist.l)
-plot(man.corr.l)
-title(main = 'Low elevation sites')
+man.corr.p <- mantel.correlog(env.dist.p, geo.dist.p)
+plot(man.corr.p)
+title(main = 'Pine')
+
+#--mantel: Pine-Doug fir
+mantel.pf <- mantel(env.dist.pf, geo.dist.pf)
+print(mantel.pf)
+
+man.corr.pf <- mantel.correlog(env.dist.pf, geo.dist.pf)
+plot(man.corr.pf)
+title(main = 'Pine-Doug fir')
+
+#--mantel: Pine-Doug fir-mixed deciduous
+mantel.pfmd <- mantel(env.dist.pfmd, geo.dist.pfmd)
+print(mantel.pfmd)
+
+man.corr.pfmd <- mantel.correlog(env.dist.pfmd, geo.dist.pfmd)
+plot(man.corr.pfmd)
+title(main = 'Pine-Doug fir-mixed deciduous')
 
 #-----------------------------------------------------------------------------------------
 # Parital mantel test of correlation of EM community by environment and geo. distance
@@ -571,30 +565,37 @@ dev.off()
 #-----------------------------------------------------------------------------------------
 #<< Graph climate data as function of other climate traits >>-----------------------------
 #--Export as jpeg
-jpeg(filename = paste0 (fig.dir,"Appendix S15.jpeg"),
-     width = 1000, height = 800)
+jpeg(filename = paste0 (fig.dir,"Appendix S8.jpeg"),
+     width = 800, height = 800)
 #--Combine into one figure
-par(mfrow = c(2,1), mar = c(5,5,5,5), oma = c(0,8,0,8))
+par(mfrow = c(2,1), mar = c(7,7,5,5), oma = c(0,8,0,8))
 
 #--Avg. high temperature and precipitation
-lm.warm <- lm(soil.data$average.temp.warm.quarter ~ soil.data$annual.prec.cm)
-anova.warm <- anova(lm.warm)
+lm.prec <- lm(soil.data$annual.prec.cm ~ soil.data$average.temp.warm.quarter)
+anova.prec <- anova(lm.prec)
 # graph
-plot(soil.data$annual.prec.cm, soil.data$average.temp.warm.quarter, pch = 19,
-    ylab = "Avg. temperature warm quarter (°C)", xlab = "Avg. annual preciptiation (cm)",
+plot(soil.data$average.temp.warm.quarter, soil.data$annual.prec.cm, pch = 19,
+    ylab = "Avg. annual precipitation (cm)",
+    xlab = "",
     cex.axis = 1.5, cex.lab = 1.5)
+mtext(side = 1, text = "Avg. temperature in the \n warmest quarter (°C)",
+      line = 4, cex = 1.5)
 axis(2, at = seq (0, 4000, by = 1000), cex.axis = 1.5, las = 2)
-abline(m <- lm(average.temp.warm.quarter ~ annual.prec.cm, data = soil.data))
+abline(m <- lm(annual.prec.cm ~ average.temp.warm.quarter, data = soil.data))
 
 #--Avg. high temperature and avg. snow
-lm.cold <- lm(soil.data$average.temp.cold.quarter ~ soil.data$annual.prec.cm)
+lm.cold <- lm(soil.data$average.temp.cold.quarter ~ soil.data$average.temp.warm.quarter)
 anova.cold <- anova(lm.cold)
 # graph
-plot(soil.data$annual.prec.cm, soil.data$average.temp.cold.quarter, pch = 19,
-    ylab = "Avg. temperature cold quarter (°C)", xlab = "Avg. annual prepcitiation (cm)",
+plot(soil.data$average.temp.warm.quarter, soil.data$average.temp.cold.quarter, pch = 19,
+    ylab = "Avg. temperature in the \n coldest quarter (°C)",
+    xlab = "",
     cex.axis = 1.5, cex.lab = 1.5)
+mtext(side = 1, text = "Avg. temperature in the \n warmest quarter (°C)",
+      line = 4, cex = 1.5)
+
 axis(2, at = seq (0, 4000, by = 1000), cex.axis = 1.5, las = 2)
-abline(m <- lm(average.temp.cold.quarter ~ annual.prec.cm, data = soil.data))
+abline(m <- lm(average.temp.cold.quarter ~ average.temp.warm.quarter, data = soil.data))
 
 #--close
 dev.off()

@@ -15,8 +15,8 @@
 #--Read in EM data frames
 em.stat <- read.csv(paste0(dat.dir,'SCM_EM_per_tree_stats.csv'),
                     as.is = T, header = T)
-em.div <- read.csv(paste0(dat.dir, 'SCM_EM_div_pooled_by_landscape.csv'), as.is = T,
-                        header = T)
+em.div <- read.csv(paste0(dat.dir, 'SCM_EM_div_pooled_by_landscape_OTU_based.csv'),
+                   as.is = T, header = T)
 abund.data <- read.csv(paste0(dat.dir, 'SCM_EM_root_based_site_x_species_matrix.csv'),
                        as.is = T, header = T)
 em.data <- read.csv(paste0(dat.dir, 'SCM_EM_raw.csv'), as.is = T, header = T)
@@ -46,13 +46,16 @@ em.anova
 em.ab <- ggplot(data = em.abun, aes (x = topography, 
                                      y = abundance)) +
   geom_boxplot() + 
-  ylab("Abundance") +
+  ylab("Abundance (tips·g-1)") +
   xlab("Topography") +
-  theme_linedraw (base_size = 15) +
+  theme_bw() +
+  theme(axis.text = element_text(size=18, color = 'black'),
+        axis.title = element_text(size = 28)) +
   theme(panel.background = element_blank(), panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank())
+        panel.grid.minor = element_blank()) +
+  scale_x_discrete(labels=c('Convergent','Divergent'))
 
-rm (lm.em.ab, em.abun, el, out, em.anova)
+rm (lm.em.ab, em.abun, out, em.anova)
 
 #-----------------------------------------------------------------------------------------
 # Ectomycorrhizal fungi - Diversity 
@@ -76,9 +79,12 @@ em.div <- ggplot(data = em.div, aes (x = topography,
   ylab("Fisher's alpha") +
   xlab("Topography") +
   ylim (0,30) +
-  theme_linedraw(base_size = 15) +
+  theme_bw() +
   theme(panel.background = element_blank(), panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank())
+        panel.grid.minor = element_blank()) +
+  theme(axis.text = element_text(size=18, color = 'black'),
+        axis.title = element_text(size = 28)) +
+  scale_x_discrete(labels=c('Convergent','Divergent'))
 
 #--export graphs
 ggsave ("em_topo_ab_div.jpeg", arrangeGrob (em.ab, em.div, nrow = 1, ncol = 2),
@@ -102,7 +108,7 @@ nmds.ab <- abund.data[!colnames(abund.data) %in% root.out]
 nmds.ab <- nmds.ab[!(nmds.ab$tree_number %in% em.out),]
 
 #--isolate otu data
-comm.matrix <- nmds.ab[5:length(nmds.ab)]
+comm.matrix <- nmds.ab[6:length(nmds.ab)]
 #--make columns numeric
 for (i in colnames(comm.matrix)) {
   comm.matrix[[i]] <- as.numeric(comm.matrix[[i]])
@@ -117,18 +123,22 @@ comm.dist.horn <- vegdist(comm.matrix, method = "morisita", binary = F)
 horn.abund <- metaMDS(comm.dist.horn, dist = "bray", try = 1000)
 
 #--Plot NMDS of EM community based on Jaccard index and OTU abundance
-plot(horn.abund, display = "sites", type = "n", cex.lab = 1.5,
-     cex.axis = 1.5, yaxt = "n")
-axis (2, at = seq (-0.4, 0.4, by = 0.2), cex.axis = 1.5, las = 2)
+par(mar=c(5,6,4,4)+.1)
+plot(horn.abund, display = "sites", type = "n", cex.lab = 2.0,
+     cex.axis = 1.5, xlab = 'Axis 1', ylab = 'Axis 2')
 # colors for points
 color.vec <- data.frame(color = rep(NA, length(rownames(comm.matrix))),
-                        p.group = nmds.ab$group)
-color.vec <- sapply(color.vec$p.group, function (x) 
-  if (x == 'High elev.') {color.vec = 'black'} else {color.vec = 'grey'})
+                        topo = nmds.ab$topography)
+color.vec <- sapply(color.vec$topo, function (x) 
+  if (x == 'Convergent') {color.vec = 'black'} else {color.vec = 'darkgrey'})
 points(horn.abund, display = "sites", cex = 2, pch = 20,
        col = color.vec,
        bg = color.vec)
 ordihull(horn.abund, groups = nmds.ab$topography)
+topo <- c('Convergent', 'Divergent')
+color <- c('black','grey')
+legend("topright", legend = topo, col = color, pch = 20,
+       cex = 1.15, pt.cex = 2, bty = 'n')
 
 #--ANOSIM 
 em.horn.anosim <- anosim(comm.matrix, grouping = nmds.ab$topography, distance = "horn")
@@ -161,7 +171,12 @@ ggplot(data = em.chisq,
   #ggtitle("Proportion of Classes by Topography") +
   scale_fill_brewer(palette = "Greys") +
   guides (fill=guide_legend(title=NULL)) +
-  theme_linedraw(base_size = 15)
+  theme_bw() +
+  theme(axis.text = element_text(size=18, color = 'black'),
+        axis.title = element_text(size = 28)) +
+  theme(panel.background = element_blank(), panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  scale_x_discrete(labels=c('Convergent','Divergent'))
 
 #--export graph
 ggsave ("em_topo_tax_comp.jpeg", last_plot(), width = 5, height = 5, device = "jpeg",
@@ -186,12 +201,15 @@ fe.anova <- anova(lm.fe.ab)
 fe.ab <- ggplot(data = fe.abun, aes (x = topography, 
                                      y = abundance)) +
   geom_boxplot() + 
-  ylab("Abundance") +
+  ylab("Isolation frequency") +
   xlab("Topography") +
   ylim(0.0, 0.2) +
-  theme_linedraw (base_size = 15) +
+  theme_bw() +
+  theme(axis.text = element_text(size=18, color = 'black'),
+        axis.title = element_text(size = 28)) +
   theme(panel.background = element_blank(), panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank())
+        panel.grid.minor = element_blank()) +
+  scale_x_discrete(labels=c('Convergent','Divergent'))
 
 rm (lm.fe.ab, fe.anova)
 
@@ -210,9 +228,12 @@ fe.div <- ggplot(data = fe.div, aes (x = topography,
   ylab("Fisher's alpha") +
   xlab("Topography") +
   ylim(0.0, 8.0) +
-  theme_linedraw(base_size = 15) +
+  theme_bw() +
+  theme(axis.text = element_text(size=18, color = 'black'),
+        axis.title = element_text(size = 28)) +
   theme(panel.background = element_blank(), panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank())
+        panel.grid.minor = element_blank()) +
+  scale_x_discrete(labels=c('Convergent','Divergent'))
 
 #--export graphs
 ggsave ("fe_topo_ab_div.jpeg", arrangeGrob (fe.ab, fe.div, nrow = 1, ncol = 2),
@@ -227,8 +248,8 @@ rm (lm.fe.div, fe.div, fe.div.pooled, fe.anova)
 #<< Morisita index >>---------------------------------------------------------------------
 nmds.fe <- fe.data
 #--Uncomment to remove rows from otu.table and comm.matrix; outliers are LB043, LB044
-#fe.out <- c("LB043", "LB044")
-#nmds.fe <- nmds.fe[!(nmds.fe$tree_number %in% fe.out),]
+fe.out <- c("LB043", "LB044")
+nmds.fe <- nmds.fe[!(nmds.fe$tree_number %in% fe.out),]
 
 #--isolate otu data
 comm.matrix <- nmds.fe[2:41]
@@ -246,18 +267,22 @@ comm.dist.horn <- vegdist(comm.matrix, method = "horn", binary = TRUE)
 morisita.abund <- metaMDS(comm.dist.horn, dist = "bray", try = 1000)
 
 #--Plot NMDS of EM community based on Jaccard index and OTU abundance
-plot(morisita.abund, display = "sites", type = "n", cex.lab = 1.5,
-     cex.axis = 1.5, yaxt = "n")
-axis (2, at = seq (-0.4, 0.4, by = 0.2), cex.axis = 1.5, las = 2)
+par(mar=c(5,6,4,4)+.1)
+plot(morisita.abund, display = "sites", type = "n", cex.lab = 2.0,
+     cex.axis = 1.5, xlab = 'Axis 1', ylab = 'Axis 2')
 # colors for points
 color.vec <- data.frame(color = rep(NA, length(rownames(comm.matrix))),
-                        p.group = nmds.fe$group)
-color.vec <- sapply(color.vec$p.group, function (x) 
-  if (x == 'High elev.') {color.vec = 'black'} else {color.vec = 'grey'})
+                        topo = nmds.fe$topography)
+color.vec <- sapply(color.vec$topo, function (x) 
+  if (x == 'Convergent') {color.vec = 'black'} else {color.vec = 'darkgrey'})
 points(morisita.abund, display = "sites", cex = 2, pch = 20,
        col = color.vec,
        bg = color.vec)
 ordihull(morisita.abund, groups = nmds.fe$topography)
+topo <- c('Convergent', 'Divergent')
+color <- c('black','grey')
+legend("topleft", legend = topo, col = color, pch = 20,
+       cex = 1.15, pt.cex = 2, bty = 'n')
 
 #--ANOSIM 
 fe.horn.anosim <- anosim(comm.matrix, grouping = nmds.fe$topography, distance = "horn")
@@ -294,7 +319,12 @@ fe <- ggplot(data = fe.chisq,
   #ggtitle("Proportion of Classes by Topography") +
   scale_fill_brewer(palette = "Greys") +
   guides (fill=guide_legend(title=NULL)) +
-  theme_linedraw(base_size = 12)
+  theme_bw() +
+  theme(axis.text = element_text(size=18, color = 'black'),
+        axis.title = element_text(size = 28)) +
+  theme(panel.background = element_blank(), panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  scale_x_discrete(labels=c('Convergent','Divergent'))
 
 #--export graphs
 ggsave ("fe_topo_tax_comp.jpeg", width = 5, height = 5,

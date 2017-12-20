@@ -65,7 +65,7 @@ tax.chisq <- data.frame(org)
 pc.em <- table(em.data$plant.comm,
                   em.data$taxonomy_class)
 #--Remove taxa with equal to or less than 1 occurence
-rare.em <- c("Fungi incertae sedis", 'Eurotiomycetes')
+rare.em <- c("Fungi incertae sedis", 'Eurotiomycetes', 'Sordariomycetes')
 pc.em <- pc.em[ ,which(!colnames(pc.em) %in% rare.em)]
 
 #-----------------------------------------------------------------------------------------

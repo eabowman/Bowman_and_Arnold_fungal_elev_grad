@@ -27,7 +27,7 @@ div.res <- data.frame(symbiont = c('EM.fa','EM.si','FE.fa','FE.si'),
 #-----------------------------------------------------------------------------------------
 #<< Fisher's alpha >> -----------
 #--Linear regression of Fisher's alpha as a function of elevation (m)
-lm.em.fa <- lm(log(fishers.alpha) ~ group, data = em.div)
+lm.em.fa <- lm(log(fishers.alpha) ~ Elevation, data = em.div)
 em.fa.anova <- summary(lm.em.fa)
 em.fa.anova
 #--add data to results table
@@ -39,7 +39,7 @@ div.res[div.res$symbiont == 'EM.fa', 'r2'] <- em.fa.anova$r.squared[1]
 
 #<< Shannon's diversity index >> -----------
 #--Linear regression of Fisher's alpha as a function of elevation (m)
-lm.em.si <- lm(shannon.index ~ group, data = em.div)
+lm.em.si <- lm(shannon.index ~ Elevation, data = em.div)
 em.si.anova <- summary(lm.em.si)
 em.si.anova
 
@@ -89,7 +89,7 @@ fe.div <- fe.div[-which(fe.div$Elevation == 2421 & fe.div$topography == 'Converg
 # FE diversity analyses
 #-----------------------------------------------------------------------------------------
 #<< Fisher's alpha >> -----------
-lm.fe.fa <- lm(log(fishers.alpha) ~ group, data = fe.div)
+lm.fe.fa <- lm(log(fishers.alpha) ~ Elevation, data = fe.div.out)
 fe.fa.anova <- summary(lm.fe.fa)
 fe.fa.anova
 #--add data to results table
@@ -100,7 +100,7 @@ div.res[div.res$symbiont == 'FE.fa', 'p'] <- fe.fa.anova$coefficients[2,4]
 div.res[div.res$symbiont == 'FE.fa', 'r2'] <- fe.fa.anova$r.squared[1]
 
 #<< Shannon's diversity index >> -----------
-lm.fe.si <- lm(log(shannon.index) ~ group, data = fe.div)
+lm.fe.si <- lm(log(shannon.index) ~ Elevation, data = fe.div.out)
 fe.si.anova <- summary(lm.fe.si)
 fe.si.anova
 #--add data to results table
@@ -179,6 +179,8 @@ fe.div.plot <- ggplot(fe.div.out) +
              size = 5, shape = 0, stroke = 2) +
   geom_point(aes(x = Elevation, y = shannon.index * 10 / 0.10, color = plant.community),
              size = 5, shape = 2, stroke = 2) +
+  geom_smooth(method=lm,
+              se=FALSE)
   theme_bw() +
   xlab('Elevation (m)') +
   ylab("Fisher's alpha") +

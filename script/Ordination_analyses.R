@@ -287,9 +287,9 @@ points(horn.abund, display = "sites", cex = 2,
        pch = shape,
        col = nmds.otu$color,
        bg = nmds.otu$color)
-#ordihull(horn.abund, groups = nmds.otu$plant.comm)
+ordihull(horn.abund, groups = nmds.otu$plant.comm)
 #ordiellipse(horn.abund, groups = nmds.otu$plant.comm, kind = 'ehull')
-ordispider(horn.abund, groups = nmds.otu$plant.comm)
+#ordispider(horn.abund, groups = nmds.otu$plant.comm)
 Plant.comm <- c('Oak-pine','Pine','Pine-Douglas fir','Pine-Douglas fir-mixed deciduous')
 shape <- c(15,16,17,18)
 legend("topleft", legend = Plant.comm, pch = shape, cex = 1.15, pt.cex = 2,
@@ -400,7 +400,7 @@ comm.matrix <- comm.matrix[which(colSums(comm.matrix) >= 5)]
 comm.dist.horn <- vegdist(comm.matrix, method = "morisita", binary = F)
 
 #--NMDS analysis
-horn.abund <- metaMDS(comm.dist.horn, dist = "bray", permutations = 999, try = 50, 
+horn.abund <- metaMDS(comm.dist.horn, dist = "bray", permutations = 999, try = 500, 
                       trymax = 1000)
 #--add stress of NMDS to results table
 anosim.res[which(anosim.res$anosim.res =="em.m"), "stress.nmds"] <-
@@ -436,7 +436,7 @@ colfunc <- colorRampPalette(c('black','lightgrey'))
 nmds.ab$color <- colfunc(10)[as.numeric(cut(nmds.ab$elevation,breaks = 10))]
 
 #--Plant community point shapes
-shape <- data.frame (shape = rep(NA,length(rownames(comm.matrix))),
+shape <- data.frame(shape = rep(NA,length(rownames(comm.matrix))),
                          p.group = nmds.ab$plant.comm)
 shape <- sapply(shape$p.group, function (x) 
   if (x == 'o.p') {shape = 15} 
@@ -450,7 +450,8 @@ points(horn.abund, display = "sites", cex = 2.5,
 ordihull(horn.abund, groups = nmds.ab$plant.comm)
 Plant.comm <- c('Oak-pine','Pine','Pine-Doug fir','Pine- Doug fir-mixed decid')
 shape <- c(15,16,17,18)
-legend("bottomright", legend = Plant.comm, pch = shape, cex = 1.4)
+legend("topright", legend = Plant.comm, pch = shape, cex = 1.15, pt.cex = 2,
+       title = 'Plant community', bty = "n")
 
 #--add color gradient legend
 xl <- 1; yb <- 1; xr <- 1.5; yt <- 2
@@ -834,7 +835,7 @@ anosim.res[which(anosim.res$anosim.res =="root.m"), "stress.nmds"] <-
   morisita.abund$stress
 
 #--format and output NMDS plots to figure folder
-jpeg(filename = paste0(fig.dir, 'Appendix_S14.jpeg'), width = 900, height = 600,
+jpeg(filename = paste0(fig.dir, 'Appendix_S10.jpeg'), width = 900, height = 600,
      quality = 200)
 
 layout(matrix(1:2,nrow=1),widths=c(0.8,0.2))
@@ -843,7 +844,7 @@ par(mar=c(5,6,4,4)+.1)
 
 #--Plot NMDS of EM community based on Morisita index and OTU abundance
 plot(morisita.abund, display = "sites", type = "n", cex.lab = 2.5,
-     cex.axis = 2.5)
+     cex.axis = 2.5, xlab = 'Axis 1', ylab = 'Axis 2')
 #--color for groups
 # color.vec <- data.frame (color = rep(NA,length(rownames(comm.matrix))),
 #                          p.group = nmds.ab$elevation)
@@ -876,9 +877,10 @@ points(morisita.abund, display = "sites", cex = 2.5,
        col = nmds.roota$color,
        bg = nmds.roota$color)
 ordihull(morisita.abund, groups = nmds.roota$plant.comm)
-Plant.comm <- c('Oak-pine','Pine','Pine-fir','Pine-fir-mixed decid')
+Plant.comm <- c('Pine-oak','Pine','Pine-Douglas fir','Pine-Douglas fir-mixed deciduous')
 shape <- c(15,16,17,18)
-legend("bottomright", legend = Plant.comm, pch = shape, cex = 1.4)
+legend("topright", legend = Plant.comm, pch = shape, cex = 1.15, pt.cex = 2,
+       title = 'Plant community', bty = "n")
 
 #--add color gradient legend
 xl <- 1; yb <- 1; xr <- 1.5; yt <- 2
