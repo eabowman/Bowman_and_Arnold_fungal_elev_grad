@@ -37,6 +37,7 @@ em.stat[em.stat$abundance == 0, 'abundance'] <- 0.000001
 #--Linear regression of the two goups
 lm.em.ab <- lm(log(abundance) ~ elevation.m, data = em.stat)
 em.ab <- summary(lm.em.ab)
+
 #--add results to results table
 abund.results[abund.results$symbiont == 'EM', 'df.1'] <- em.ab$fstatistic[2]
 abund.results[abund.results$symbiont == 'EM', 'df.2'] <- em.ab$fstatistic[3]
@@ -149,6 +150,7 @@ fe.abun[fe.abun$abundance == 0, 'abundance'] <- 0.000001
 #--Linear regression using logit transformed abundance data
 lm.fe.ab <- lm(logit(abundance) ~ elevation.m, data = fe.abun)
 fe.ab <- summary(lm.fe.ab)
+
 #--add results to results table
 abund.results[abund.results$symbiont == 'FE', 'df.1'] <- fe.ab$fstatistic[2]
 abund.results[abund.results$symbiont == 'FE', 'df.2'] <- fe.ab$fstatistic[3]

@@ -30,6 +30,7 @@ div.res <- data.frame(symbiont = c('EM.fa','EM.si','FE.fa','FE.si'),
 lm.em.fa <- lm(log(fishers.alpha) ~ Elevation, data = em.div)
 em.fa.anova <- summary(lm.em.fa)
 em.fa.anova
+
 #--add data to results table
 div.res[div.res$symbiont == 'EM.fa', 'df.1'] <- em.fa.anova$fstatistic[2]
 div.res[div.res$symbiont == 'EM.fa', 'df.2'] <- em.fa.anova$fstatistic[3]
@@ -89,9 +90,10 @@ fe.div <- fe.div[-which(fe.div$Elevation == 2421 & fe.div$topography == 'Converg
 # FE diversity analyses
 #-----------------------------------------------------------------------------------------
 #<< Fisher's alpha >> -----------
-lm.fe.fa <- lm(log(fishers.alpha) ~ Elevation, data = fe.div)
-fe.fa.anova <- summary(lm.fe.fa)
-fe.fa.anova
+fit.fe.fa <- lm(log(fe.div$fishers.alpha) ~ poly(fe.div$Elevation, 2, raw=TRUE))
+fe.fa.regression <- summary(fit.fe.fa)
+fe.fa.regression
+
 #--add data to results table
 div.res[div.res$symbiont == 'FE.fa', 'df.1'] <- fe.fa.anova$fstatistic[2]
 div.res[div.res$symbiont == 'FE.fa', 'df.2'] <- fe.fa.anova$fstatistic[3]
@@ -100,9 +102,10 @@ div.res[div.res$symbiont == 'FE.fa', 'p'] <- fe.fa.anova$coefficients[2,4]
 div.res[div.res$symbiont == 'FE.fa', 'r2'] <- fe.fa.anova$r.squared[1]
 
 #<< Shannon's diversity index >> -----------
-lm.fe.si <- lm(log(shannon.index) ~ Elevation, data = fe.div.out)
-fe.si.anova <- summary(lm.fe.si)
-fe.si.anova
+fit.fe.si <- lm(log(fe.div$shannon.index) ~ poly(fe.div$Elevation, 2, raw=TRUE))
+fe.si.regression <- summary(fit.fe.si)
+fe.si.regression
+
 #--add data to results table
 div.res[div.res$symbiont == 'FE.si', 'df.1'] <- fe.si.anova$fstatistic[2]
 div.res[div.res$symbiont == 'FE.si', 'df.2'] <- fe.si.anova$fstatistic[3]
