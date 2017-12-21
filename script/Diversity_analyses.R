@@ -26,8 +26,10 @@ div.res <- data.frame(symbiont = c('EM.fa','EM.si','FE.fa','FE.si'),
 # EM diversity analyses
 #-----------------------------------------------------------------------------------------
 #<< Fisher's alpha >> -----------
+#--remove outlier
+em.div.out <- em.div[-13,]
 #--Linear regression of Fisher's alpha as a function of elevation (m)
-lm.em.fa <- lm(log(fishers.alpha) ~ Elevation, data = em.div)
+lm.em.fa <- lm(log(fishers.alpha) ~ Elevation, data = em.div.out)
 em.fa.anova <- summary(lm.em.fa)
 em.fa.anova
 

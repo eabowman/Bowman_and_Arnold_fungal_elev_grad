@@ -17,8 +17,9 @@ otu.data <- read.csv(paste0(dat.dir, 'SCM_EM_otu_based_site_x_species_matrix.csv
 # Indicator species analysis
 #-----------------------------------------------------------------------------------------
 #<< Overall EM, with singletons included >>-----------------------------------------------
-#--isolate OTUs
+#--isolate OTUs with great than 4 ocurrences
 em.indsp <- otu.data[6:length(otu.data)]
+em.indsp <- em.indsp[, colSums(em.indsp) > 4]
 #--pull out elevation group data for grouping
 Pl_comm = otu.data$plant.comm
 #--Association between species patterns and high/low elevation sites
@@ -47,8 +48,9 @@ abund.data <- read.csv(paste0(dat.dir, 'SCM_EM_root_based_site_x_species_matrix.
 #-----------------------------------------------------------------------------------------
 # Indicator analysis
 #-----------------------------------------------------------------------------------------
-#--isolate OTUs
+#--isolate OTUs with great than 4 ocurrences
 abund.indsp <- abund.data[6:length(abund.data)]
+abund.indsp <- abund.indsp[, colSums(abund.indsp) > 4]
 #--pull out elevation group data for grouping
 El_group = abund.data$plant.comm
 #--Association between species patterns and high/low elevation sites
@@ -78,8 +80,9 @@ fe.data <- read.csv(paste0(dat.dir, 'SCM_FE_site_x_species_matrix.csv'),
 # Indicator analysis
 #-----------------------------------------------------------------------------------------
 #<< Overall FE, with singletons included >>-----------------------------------------------
-#--isolate OTUs
+#--isolate OTUs with greater with 4 ocurrences
 fe.indsp <- fe.data[2:41]
+fe.indsp <- fe.indsp[, colSums(fe.indsp) > 4]
 #--pull out elevation group data for grouping
 El_group = fe.data$plant.comm
 #--Association between species patterns and high/low elevation sites

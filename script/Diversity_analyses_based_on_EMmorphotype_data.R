@@ -66,9 +66,9 @@ em.div.plot <- ggplot(div.topo.data) +
         legend.title=element_text(size=16)) +
   scale_color_manual(values = c('o.p' = '#d7191c', 'p' = '#fdae61',
                                 'p.f' = '#67E98A', 'p.f.md' = '#2c7bb6'),
-                     labels = c('Pine-oak', 'Pine', 'Pine-Doug fir',
-                                'Pine-Doug fir-mixed decid.'),
-                     name = 'Plant comm.') +
+                     labels = c('Pine-oak', 'Pine', 'Pine-Douglas fir',
+                                'Pine-Doug fir-mixed deciduous'),
+                     name = 'Plant community') +
   guides(colour = guide_legend(override.aes = list(shape = 16, size = 5))) +
   theme(axis.title.x = element_text(margin = margin(t = 30)),
         axis.title.y = element_text(margin = margin(r = 30)))

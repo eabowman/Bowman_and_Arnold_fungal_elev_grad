@@ -415,7 +415,7 @@ par(mar=c(5,6,4,4)+.1)
 
 #--Plot NMDS of EM community based on Morisita index and OTU abundance
 plot(horn.abund, display = "sites", type = "n", cex.lab = 2.5,
-     cex.axis = 2.5)
+     cex.axis = 2.5, xlab = 'Axis 1', ylab = 'Axis 2')
 #--color for groups
 # color.vec <- data.frame (color = rep(NA,length(rownames(comm.matrix))),
 #                          p.group = nmds.ab$elevation)
@@ -448,9 +448,9 @@ points(horn.abund, display = "sites", cex = 2.5,
        col = nmds.ab$color,
        bg = nmds.ab$color)
 ordihull(horn.abund, groups = nmds.ab$plant.comm)
-Plant.comm <- c('Oak-pine','Pine','Pine-Doug fir','Pine- Doug fir-mixed decid')
+Plant.comm <- c('Oak-pine','Pine','Pine-Douglas fir','Pine-Douglas fir-mixed deciduous')
 shape <- c(15,16,17,18)
-legend("topright", legend = Plant.comm, pch = shape, cex = 1.15, pt.cex = 2,
+legend("bottomright", legend = Plant.comm, pch = shape, cex = 1.15, pt.cex = 2,
        title = 'Plant community', bty = "n")
 
 #--add color gradient legend
