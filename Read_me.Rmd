@@ -5,9 +5,7 @@ date: "10/26/2016"
 output: html_document
 ---
 
-The folders here contain R scripts and data files for the article "Ectomycorrhizal and
-foliar endophytic fungal communities differ in sensitivity to climate-related factors
-along a spatially constrained elevation gradient" written by Elizabeth A. Bowman and A.
+The folders here contain R scripts and data files for the article "Distributions of ectomycorrhizal and foliar endophytic fungal communities associated with Pinus ponderosa along a spatially constrained elevation gradient" written by Elizabeth A. Bowman and A.
 Elizabeth Arnold.
 
 A. Elizabeth Arnold is the author for correspondence on this article. 
@@ -38,7 +36,7 @@ Each of these folders contains a 'Read me' file with further explanations.
 The following code will run each analysis and output figures and result tables to their
 appropriate folders. All analyses below—with the exception of the analyses listed under 'Analyses using OTU-informed morphotypes' are run using sequenced root tip data (see manuscript for explanation of sequenced root tips versus OTU-informed morphotypes)
 
-### Load file paths
+# Load file paths
 
 ```{r file paths}
 #--file path to data directory
@@ -48,7 +46,7 @@ res.dir <- 'results/'
 script.dir <- 'script/'
 ```
 
-### Load packages  
+# Load packages  
 
 If you need to install packages, open 'Load_packages.R' and uncomment 'install.packages'
 before running. 
@@ -57,31 +55,31 @@ before running.
 source(paste0(script.dir, "Load_packages.R"))
 ```
 
-### Abundance analyses  
+# Abundance analyses  
 
 ```{r abundance}
 source(paste0(script.dir, "Abundance_analyses.R"))
 ```
 
-### Environmental analyses  
+# Environmental analyses  
 
 ```{r environmental}
 source(paste0(script.dir, "Environmental_analyses.R"))
 ```
 
-### Diversity analyses  
+# Diversity analyses  
 
 ```{r diversity}
 source(paste0(script.dir, "Diversity_analyses.R"))
 ```
 
-### Species accumulation curves analyses  
+# Species accumulation curves analyses  
 
 ```{r sp accumulation}
 source(paste0(script.dir, "Species_accumulation_curves.R"))
 ```
 
-### Community composition analyses 
+# Community composition analyses 
 
 Within the 'Bowman and Arnold - American Journal of Botany 2016 - Ordination analyses.R' script there is code to remove singletons, just uncomment them (remove # sign). The code as it is run has outliers removed, but you can include them by commenting out those lines (add # sign before code). All code is commented with explanations of what their function is.
 
@@ -89,43 +87,42 @@ Within the 'Bowman and Arnold - American Journal of Botany 2016 - Ordination ana
 source(paste0(script.dir, "Ordination_analyses.R"))
 ```
 
-### Taxonomic analyses 
+# Taxonomic analyses 
 
 ```{r taxonomy}
 source(paste0(script.dir, "Taxonomic_analyses.R"))
 ```
 
-### Indicator species analyses 
-
+# Indicator species analyses 
 
 ```{r indicator}
 source(paste0(script.dir, "Indicator_species_analyses.R"))
 ```
 
 
-### Topographical analyses
+# Topographical analyses
 
 ```{r topography}
 source(paste0(script.dir, "Topographical_analyses.R"))
 ```
 
 
-### Analyses using OTU-informed morphotypes
+# Analyses using OTU-informed morphotypes
 NMDS, ANOSIM, and PERANOVA analyses using OTU-informed morphotypes is executed in the same script as above ('Ordination_analyses.R')
 
 Indicator species analyses using OTU-informed morphotypes is executed in the same script as above ('Indicator_species_analyses.R')
 
-## Diversity
+### Diversity
 ```{r OTU-informed morphotypes: Diversity}
 source(paste0(script.dir, "Diversity_analyses_based_on_EMmorphotype_data.R"))
 ```
 
-## Species accumulation curves
+### Species accumulation curves
 ```{r OTU-informed morphotypes: Species accumulation curves}
 source(paste0(script.dir, "Species_accumulation_curves_based_on_EMmorphotype_data.R"))
 ```
 
-## Taxonomy
+### Taxonomy
 ```{r OTU-informed morphotypes: Taxonomy}
 source(paste0(script.dir, "Taxonomic_analyses_based_on_EMmorphotype_data.R"))
 ```
