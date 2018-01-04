@@ -36,7 +36,7 @@ Each of these folders contains a 'Read me' file with further explanations.
 ------------------------------------------------------------------------------------------
 
 The following code will run each analysis and output figures and result tables to their
-appropriate folders. 
+appropriate folders. All analyses below—with the exception of the analyses listed under 'Analyses using OTU-informed morphotypes' are run using sequenced root tip data (see manuscript for explanation of sequenced root tips versus OTU-informed morphotypes)
 
 ### Load file paths
 
@@ -102,14 +102,30 @@ source(paste0(script.dir, "Taxonomic_analyses.R"))
 source(paste0(script.dir, "Indicator_species_analyses.R"))
 ```
 
-### Relationship between EM and FE
-
-```{r EM vs FE}
-source(paste0(script.dir, "Relationship_between_EM_and_FE.R"))
-```
 
 ### Topographical analyses
 
 ```{r topography}
 source(paste0(script.dir, "Topographical_analyses.R"))
+```
+
+
+### Analyses using OTU-informed morphotypes
+NMDS, ANOSIM, and PERANOVA analyses using OTU-informed morphotypes is executed in the same script as above ('Ordination_analyses.R')
+
+Indicator species analyses using OTU-informed morphotypes is executed in the same script as above ('Indicator_species_analyses.R')
+
+## Diversity
+```{r OTU-informed morphotypes: Diversity}
+source(paste0(script.dir, "Diversity_analyses_based_on_EMmorphotype_data.R"))
+```
+
+## Species accumulation curves
+```{r OTU-informed morphotypes: Species accumulation curves}
+source(paste0(script.dir, "Species_accumulation_curves_based_on_EMmorphotype_data.R"))
+```
+
+## Taxonomy
+```{r OTU-informed morphotypes: Taxonomy}
+source(paste0(script.dir, "Taxonomic_analyses_based_on_EMmorphotype_data.R"))
 ```
